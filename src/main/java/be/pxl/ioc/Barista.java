@@ -6,17 +6,22 @@ class Barista {
     private final String name;
     private WorkEthic workEthic;
 
-    Barista(String name, int ethic) {
+    Barista(String name) {
         this.name = name;
-        if (ethic == 0) {
+        if (Objects.equals(name, "vicky")) {
             workEthic = new CustomerFriendlyWorkEthic();
-        } else if (ethic == 1) {
+        } else if (Objects.equals(name, "gemma")) {
             workEthic = new LazyWorkEthic();
-        } else if (ethic == 2) {
+        } else if (Objects.equals(name, "gianluca")) {
             workEthic = new BadHearingWorkEthic();
         } else {
             workEthic = new LazyWorkEthic();
         }
+    }
+    
+    Barista(String name, WorkEthic workEthic) {
+    	this.name = name;
+    	this.workEthic = workEthic;
     }
 
     String getName() {
